@@ -1302,17 +1302,20 @@
     event.target.classList.add('active');
   }
 
-  // ─── CHAT STATE ───
-  const AGENTS = [
-    { name: 'James', initial: 'Ja' },
-    { name: 'Jenny', initial: 'Je' },
+  // ─── AGENT CONFIG ─── (edit names/initials here only — do not touch logic below)
+  const AGENT_CONFIG = [
+    { name: 'James',   initial: 'Ja' },
+    { name: 'Jenny',   initial: 'Je' },
     { name: 'Charlie', initial: 'Ch' },
-    { name: 'Ivy', initial: 'Iv' },
+    { name: 'Ivy',     initial: 'Iv' },
     { name: 'Jeannie', initial: 'Jn' },
-    { name: 'Josh', initial: 'Jo' },
-    { name: 'Chloe', initial: 'Cl' },
-    { name: 'Nyla', initial: 'Ny' },
+    { name: 'Josh',    initial: 'Jo' },
+    { name: 'Chloe',   initial: 'Cl' },
+    { name: 'Nyla',    initial: 'Ny' },
   ];
+
+  // ─── CHAT STATE ───
+  const AGENTS = AGENT_CONFIG;
 
   const agent = AGENTS[Math.floor(Math.random() * AGENTS.length)];
   let chatHistory = [];
@@ -1421,7 +1424,14 @@ RULES:
 - Never make up prices or items not listed above
 - Never paste raw URLs in any response
 - For ordering, tell customers to tap the "Order Now" button at the top of the page or find us on GrabFood
-- For delivery orders, let customers know prices are slightly higher than dine-in`;
+- For delivery orders, let customers know prices are slightly higher than dine-in
+
+OUT-OF-SCOPE RULE:
+If a customer asks something unrelated to City Slice, use your judgment:
+
+CASUAL OFF-TOPIC (weather, sports, random trivia, fun questions) → You may respond with a warm, brief, in-character bridge that ties back to City Slice. Keep it natural and light. Example: if asked about the weather, you might say something like "Not really my expertise — but rain or shine, City Slice is always a good idea! 🍕 Anything I can help you with on the menu or orders?"
+
+SENSITIVE OFF-TOPIC (politics, religion, personal problems, other businesses, anything controversial) → Do NOT engage. Respond with only: "I'm only here to help with City Slice questions! 🍕 Anything I can help you with about our menu, hours, or orders?"`;
 
   const QUICK_CHIPS = [
     { label: '🍕 See the menu', msg: 'What\'s on the menu?' },
