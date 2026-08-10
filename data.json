@@ -44,14 +44,6 @@
         "priceDineIn": 295,
         "priceDelivery": 325,
         "priceLabel": "Dine-in"
-      },
-      {
-        "tag": "Late Night",
-        "name": "Midnight Slice",
-        "desc": "Late-night promo slice. While stocks last.",
-        "priceDineIn": 200,
-        "priceDelivery": null,
-        "priceLabel": "Promo"
       }
     ],
 
@@ -110,26 +102,24 @@
     ],
 
     "drinks": [
-      { "tag": "Citro", "name": "Citro Lemonade", "desc": "Classic · Cucumber · Strawberry · Watermelon · Blueberry", "priceDineIn": 99, "priceDelivery": 110 },
+      { "tag": "Citro", "name": "Citro Lemonade", "desc": "Classic · Strawberry · Watermelon · Blueberry", "priceDineIn": 99, "priceDelivery": 110 },
       { "tag": "Citro", "name": "Citro Slushie", "desc": "Icy, refreshing, and dangerously good.", "priceDineIn": 129, "priceDelivery": null },
       { "tag": "Coffee", "name": "Brewed Coffee", "desc": "Kold Kopi brewed coffee", "priceDineIn": 70, "priceDelivery": null },
       { "tag": "Coffee", "name": "Vietnamese Coffee", "desc": "Sweet, strong, iced", "priceDineIn": 80, "priceDelivery": null },
       { "tag": "Soda", "name": "Sodas", "desc": "Coke · Coke Zero · Sprite Zero · Royal · Rootbeer", "priceDineIn": 99, "priceDelivery": null },
-      { "tag": "Water", "name": "Bottled Water", "desc": "Still water", "priceDineIn": 35, "priceDelivery": null },
-      { "tag": "6-Pack", "name": "Citro Case", "desc": "Take 6 Citros home. Mix and match flavors.", "priceDineIn": 499, "priceDelivery": null }
+      { "tag": "Water", "name": "Bottled Water", "desc": "Still water", "priceDineIn": 35, "priceDelivery": null }
     ],
 
     "desserts": [
       { "tag": "Dessert First", "name": "Panna Cotta", "desc": "Strawberry · Coffee · Chocolate", "priceDineIn": 159, "priceDelivery": 199 },
       { "tag": "Dessert First", "name": "Overnight Oats", "desc": "Blueberry · Strawberry · Oreo · Regular", "priceDineIn": 129, "priceDelivery": null },
-      { "tag": "Dessert Can", "name": "Cheesecakes", "desc": "Blueberry · Chocolate · Key Lime Pie · Tres Leches · Tiramisu", "priceDineIn": 240, "priceDelivery": null, "priceSuffix": "each" },
-      { "tag": "Bundle", "name": "Sweet Box", "desc": "6 desserts in one box. Perfect for sharing (or not).", "priceDineIn": 1299, "priceDelivery": null }
+      { "tag": "Dessert Can", "name": "Cheesecakes", "desc": "Blueberry · Chocolate · Key Lime Pie · Tres Leches · Tiramisu", "priceDineIn": 240, "priceDelivery": null, "priceSuffix": "each" }
     ]
   },
 
   "addOns": {
     "sauces": "Extra Cheese / Garlic Yogurt / Ranch / Sweet Sriracha: ₱20 · Hot Sauce: ₱15 · Chili Flakes: ₱10",
-    "toppings": "Cheddar · Mozzarella · Pepperoni · Mushrooms · Bell Peppers · Red Onions · Ham · Crispy Bacon · Bacon · Chicken (Ranch) · Chicken (BBQ) · Beef · Tomatoes · Pineapple"
+    "toppings": "Mozzarella · Pepperoni · Mushrooms · Bell Peppers · Red Onions · Ham · Crispy Bacon · Bacon · Chicken (Ranch) · Chicken (BBQ) · Beef · Tomatoes · Pineapple"
   },
 
   "promotions": [
