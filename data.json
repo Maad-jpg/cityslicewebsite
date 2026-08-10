@@ -1,0 +1,181 @@
+{
+  "business": {
+    "name": "City Slice Pizza Lounge",
+    "tagline": "New York-style XL pizza by the slice, Fast + Fresh",
+    "location": "Milano Residences Piazza, Kalayaan Ave, Poblacion, Makati City (ground floor)",
+    "hoursDisplay": "Open Daily · 9:00 AM – 11:00 PM",
+    "hoursPromptText": "Open every day Monday–Sunday, 9:00 AM – 11:00 PM",
+    "phone": "0966 196 7715",
+    "email": "info@cityslicemanila.com",
+    "instagram": "@cityslicemanila",
+    "tiktok": "@cityslicemanila",
+    "facebook": "City Slice Pizza Lounge",
+    "website": "www.cityslicemanila.com",
+    "grabLink": "https://r.grab.com/g/6-20260608_234709_8f85700e644f4551b6e1786436a014dc_MEXMPS-2-C731HGMYRF5AJE"
+  },
+
+  "delivery": {
+    "freeDeliveryBuildings": [
+      "Milano Residences",
+      "Knightsbridge Residences",
+      "Century Spire"
+    ],
+    "freeDeliveryArea": "Century City, Makati",
+    "freeDeliveryOrderChannel": "Viber 0966 196 7715",
+    "otherAreasChannel": "GrabFood (search City Slice Pizza Lounge)"
+  },
+
+  "payment": ["Cash", "GCash", "Grab Pay", "Credit/Debit Card", "Bank Transfer / QR PH"],
+
+  "menu": {
+    "slices": [
+      {
+        "tag": "Classic",
+        "name": "Classic Slice",
+        "desc": "Pepperoni or Cheese — the NY staple done right.",
+        "priceDineIn": 250,
+        "priceDelivery": 275,
+        "priceLabel": "Dine-in"
+      },
+      {
+        "tag": "Specialty",
+        "name": "Specialty Slice",
+        "desc": "5 Cheese · Sausage Bacon Pesto · All Meat · Chicken Bacon Ranch · Pinoy Chicken BBQ · Hawaiian Queso Overload · Vegetarian Overload · Holy Moly Margarita",
+        "priceDineIn": 295,
+        "priceDelivery": 325,
+        "priceLabel": "Dine-in"
+      },
+      {
+        "tag": "Late Night",
+        "name": "Midnight Slice",
+        "desc": "Late-night promo slice. While stocks last.",
+        "priceDineIn": 200,
+        "priceDelivery": null,
+        "priceLabel": "Promo"
+      }
+    ],
+
+    "whole": [
+      {
+        "tag": "14\"",
+        "name": "Classic Pizza",
+        "desc": "Pepperoni, Cheese, or Hawaiian. Feeds 2–3.",
+        "priceDineIn": 1099,
+        "priceDelivery": 1149
+      },
+      {
+        "tag": "14\" Specialty",
+        "name": "Specialty Pizza",
+        "desc": "8 flavors to choose from. Feeds 2–3.",
+        "priceDineIn": 1199,
+        "priceDelivery": 1249
+      },
+      {
+        "tag": "18\"",
+        "name": "XL Classic Pizza",
+        "desc": "Pepperoni, Cheese, or Hawaiian. Feeds 4–5.",
+        "priceDineIn": 1499,
+        "priceDelivery": 1599
+      },
+      {
+        "tag": "18\" Specialty",
+        "name": "XL Specialty Pizza",
+        "desc": "8 flavors to choose from. Feeds 4–5.",
+        "priceDineIn": 1599,
+        "priceDelivery": 1749
+      },
+      {
+        "tag": "Build",
+        "name": "18\" Build-A-Box",
+        "desc": "Mix any 6 slices — Classic ₱1,250 · Specialty ₱1,699 dine-in / ₱1,995 delivery",
+        "priceDineIn": 1250,
+        "priceDelivery": null,
+        "priceOverride": "₱1,250+"
+      }
+    ],
+
+    "combos": [
+      { "tag": "Solo", "name": "Solo XL Combo", "desc": "1 XL Slice + 1 Lemonade", "priceDineIn": 329, "priceDelivery": 399 },
+      { "tag": "Double", "name": "2 XL Slices", "desc": "Any 2 flavors", "priceDineIn": 525, "priceDelivery": 575 },
+      { "tag": "Sweet Deal", "name": "Slice + Drink + Dessert", "desc": "1 XL Slice · 1 Drink · 1 Dessert", "priceDineIn": 549, "priceDelivery": 599 },
+      { "tag": "Double+", "name": "2 Slices + 2 Drinks", "desc": "Any 2 slices with 2 lemonades", "priceDineIn": 610, "priceDelivery": 625 },
+      { "tag": "Date Night", "name": "Date Night", "desc": "2 Slices · 2 Drinks · 1 Dessert", "priceDineIn": 699, "priceDelivery": 799 },
+      { "tag": "Family", "name": "14\" Family Deal", "desc": "14\" Specialty + 4 Lemonades", "priceDineIn": 1299, "priceDelivery": 1399 },
+      { "tag": "Party", "name": "18\" XL Party Deal", "desc": "18\" Specialty + 6 Lemonades", "priceDineIn": 1799, "priceDelivery": 1999 }
+    ],
+
+    "bulk": [
+      { "tag": "Office Classic", "name": "Office Classic Pack", "desc": "3x 14\" Classic Pizzas — great for groups of 10+", "priceDineIn": 2850, "priceDelivery": null },
+      { "tag": "Office Specialty", "name": "Office Specialty Pack", "desc": "3x 14\" Specialty Pizzas — great for groups of 10+", "priceDineIn": 3399, "priceDelivery": 3499 }
+    ],
+
+    "drinks": [
+      { "tag": "Citro", "name": "Citro Lemonade", "desc": "Classic · Cucumber · Strawberry · Watermelon · Blueberry", "priceDineIn": 99, "priceDelivery": 110 },
+      { "tag": "Citro", "name": "Citro Slushie", "desc": "Icy, refreshing, and dangerously good.", "priceDineIn": 129, "priceDelivery": null },
+      { "tag": "Coffee", "name": "Brewed Coffee", "desc": "Kold Kopi brewed coffee", "priceDineIn": 70, "priceDelivery": null },
+      { "tag": "Coffee", "name": "Vietnamese Coffee", "desc": "Sweet, strong, iced", "priceDineIn": 80, "priceDelivery": null },
+      { "tag": "Soda", "name": "Sodas", "desc": "Coke · Coke Zero · Sprite Zero · Royal · Rootbeer", "priceDineIn": 99, "priceDelivery": null },
+      { "tag": "Water", "name": "Bottled Water", "desc": "Still water", "priceDineIn": 35, "priceDelivery": null },
+      { "tag": "6-Pack", "name": "Citro Case", "desc": "Take 6 Citros home. Mix and match flavors.", "priceDineIn": 499, "priceDelivery": null }
+    ],
+
+    "desserts": [
+      { "tag": "Dessert First", "name": "Panna Cotta", "desc": "Strawberry · Coffee · Chocolate", "priceDineIn": 159, "priceDelivery": 199 },
+      { "tag": "Dessert First", "name": "Overnight Oats", "desc": "Blueberry · Strawberry · Oreo · Regular", "priceDineIn": 129, "priceDelivery": null },
+      { "tag": "Dessert Can", "name": "Cheesecakes", "desc": "Blueberry · Chocolate · Key Lime Pie · Tres Leches · Tiramisu", "priceDineIn": 240, "priceDelivery": null, "priceSuffix": "each" },
+      { "tag": "Bundle", "name": "Sweet Box", "desc": "6 desserts in one box. Perfect for sharing (or not).", "priceDineIn": 1299, "priceDelivery": null }
+    ]
+  },
+
+  "addOns": {
+    "sauces": "Extra Cheese / Garlic Yogurt / Ranch / Sweet Sriracha: ₱20 · Hot Sauce: ₱15 · Chili Flakes: ₱10",
+    "toppings": "Cheddar · Mozzarella · Pepperoni · Mushrooms · Bell Peppers · Red Onions · Ham · Crispy Bacon · Bacon · Chicken (Ranch) · Chicken (BBQ) · Beef · Tomatoes · Pineapple"
+  },
+
+  "promotions": [
+    "Combo Deals: Bundle slices with drinks and desserts",
+    "Office Party Pack: 3x 14\" whole pizzas at a bundle price. Great for groups of 10+.",
+    "FREE delivery to Milano Residences, Knightsbridge Residences, and Century Spire (Century City, Makati)"
+  ],
+
+  "faqs": [
+    { "q": "Where are you located?", "a": "We're at Milano Residences Piazza, Kalayaan Ave, Poblacion, Makati City — ground floor." },
+    { "q": "What are your store hours?", "a": "We're open every day from 9:00 AM to 11:00 PM — 7 days a week!" },
+    { "q": "Do you deliver?", "a": "Yes! FREE delivery to Milano Residences, Knightsbridge Residences, and Century Spire — order direct via Viber 0966 196 7715. All other areas: order via GrabFood, search City Slice Pizza Lounge." },
+    { "q": "Which buildings get free delivery?", "a": "Milano Residences, Knightsbridge Residences, and Century Spire — all in the Century City area of Makati. Order direct via Viber 0966 196 7715." },
+    { "q": "What payment methods do you accept?", "a": "Cash, GCash, Grab Pay, Credit/Debit Card, and Bank Transfer / QR PH." },
+    { "q": "What's the difference between Classic and Specialty slices?", "a": "Classic slices (Pepperoni & Cheese) are ₱250. Specialty slices are premium flavors at ₱295." },
+    { "q": "How big are your slices?", "a": "New York-style XL — much bigger than regular pizza. One slice is a solid meal." },
+    { "q": "Do you have vegetarian options?", "a": "Yes! Vegetarian Overload and Holy Moly Margarita are both vegetarian-friendly." },
+    { "q": "Can I order a whole pizza?", "a": "Yes — 14\" and 18\" whole pizzas available in Classic and Specialty." },
+    { "q": "Do you cater events?", "a": "Yes! Office Party Pack (3x 14\") is great for groups. Call 0966 196 7715 for larger events." },
+    { "q": "Do you have desserts?", "a": "Yes — Dessert First is our dessert brand. Cheesecakes, Panna Cotta, Overnight Oats, and Sweet Box available!" },
+    { "q": "Do you have coffee?", "a": "Yes! Kold Kopi — Brewed Coffee ₱70 and Vietnamese Coffee ₱80." },
+    { "q": "What is Citro?", "a": "Citro is our in-house Philippine lemonade brand — Classic, Cucumber, Strawberry, Watermelon, Blueberry at ₱99." },
+    { "q": "Can I customize my order?", "a": "Yes — 18\" Build-A-Box lets you choose any 6 slices in Classic or Specialty." },
+    { "q": "Is dine-in available?", "a": "Yes, walk-ins are very welcome!" },
+    { "q": "Do you accept reservations?", "a": "We're a casual walk-in concept. For large groups, call ahead at 0966 196 7715." }
+  ],
+
+  "deflections": [
+    { "topic": "Future branch locations", "response": "We're focused on making this location amazing first! Follow @cityslicemanila for expansion news." },
+    { "topic": "Franchise inquiries", "response": "For business inquiries, please email info@cityslicemanila.com." },
+    { "topic": "Staff salaries or HR matters", "response": "For HR inquiries, contact us at info@cityslicemanila.com." },
+    { "topic": "Internal costs or finances", "response": "Happy to help with anything menu or order-related!" },
+    { "topic": "Owner personal information", "response": "Reach us at info@cityslicemanila.com or 0966 196 7715." },
+    { "topic": "Negative reviews or complaints", "response": "We're sorry! DM us on Instagram @cityslicemanila so we can make it right." },
+    { "topic": "Competitor comparisons", "response": "We'll let our pizza speak for itself — come try a slice!" },
+    { "topic": "Staff names or personal details", "response": "Our team is awesome but we keep their info private. Reach us at info@cityslicemanila.com." }
+  ],
+
+  "agents": [
+    { "name": "James",   "initial": "Ja" },
+    { "name": "Jenny",   "initial": "Je" },
+    { "name": "Charlie", "initial": "Ch" },
+    { "name": "Ivy",     "initial": "Iv" },
+    { "name": "Jeannie", "initial": "Jn" },
+    { "name": "Josh",    "initial": "Jo" },
+    { "name": "Chloe",   "initial": "Cl" },
+    { "name": "Nyla",    "initial": "Ny" }
+  ]
+}
