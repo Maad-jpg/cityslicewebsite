@@ -17,13 +17,57 @@
   "delivery": {
     "freeDeliveryBuildings": [
       "Milano Residences",
-      "Knightsbridge Residences",
-      "Century Spire"
+      "Knightsbridge Residences"
     ],
     "freeDeliveryArea": "Century City, Makati",
-    "freeDeliveryOrderChannel": "Viber or Whatsapp 0966 196 7715",
+    "freeDeliveryOrderChannel": "Viber or WhatsApp 0966 196 7715",
     "otherAreasChannel": "GrabFood (search City Slice Pizza Lounge)"
   },
+
+  "deliveryProgram": {
+    "headline": "You stay in, We'll come up!",
+    "subhead": "City Slice Pizza Lounge delivered to your doorstep!",
+    "intro": "Choose from our most-popular bundles below or view our menu! Delivered within 10 minutes from the oven. No app, no driver, no delivery fee*",
+    "orderChannel": "Order via Viber or WhatsApp",
+    "orderPhone": "0966 196 7715",
+    "activeBuildings": ["The Milano Residences", "The Knightsbridge Residences"],
+    "comingSoonBuildings": [
+      "The Gramercy Residences",
+      "Trump Tower at Century Tower",
+      "Century Diamond Tower",
+      "Centuria Medical Makati",
+      "Century Spire"
+    ],
+    "buildingCta": "Don't see your building on the list? Reach out to your building admin and have them contact us at 0966 196 7715 so we can partner up and deliver to your offices or units!",
+    "bundles": [
+      { "name": "Double XL Slices", "desc": "2 XL slices of any flavor", "save": 79 },
+      { "name": "Date Night", "desc": "2 XL slices of any flavor, 1 choice of dessert, and 1 choice of Citro Lemonade", "save": 268 },
+      { "name": "Office Party Pack", "desc": "3x 14\" Whole Specialty Pizza of any flavor", "save": 198 }
+    ],
+    "terms": [
+      { "title": "Delivery Area", "body": "Free delivery to your doorstep is available here! Subject to select building partners within Century City, Makati. Delivery times may differ for buildings further away; estimates will be communicated via text on WhatsApp or Viber." },
+      { "title": "Delivery", "body": "The delivery window begins once the pizza leaves the oven and applies only to orders within the specified free delivery area. Delivery times may vary due to order volume, weather, building access, or elevator wait times." },
+      { "title": "Bundle Availability", "body": "Promo bundles (Double XL Slices, Date Night, Office Party Pack, Build-a-box) are available while stocks last and may be discontinued or modified without prior notice." },
+      { "title": "Savings Disclaimer", "body": "Advertised savings (₱79, ₱268, ₱198) are calculated based on the total value of items if purchased individually at regular menu price, compared to the bundle price." },
+      { "title": "Flavor Substitutions", "body": "\"Any flavor\" selections are subject to daily availability. City Slice reserves the right to substitute a comparable flavor if a specific option is unavailable." },
+      { "title": "Date Night Bundle Inclusions", "body": "Dessert and Citro Lemonade choices are limited to the selections on-hand. Please inquire for more details." },
+      { "title": "Payment", "body": "Orders must be paid in full before preparation of order commences. We accept GCash, Bank Transfer, and COD for this initiative." },
+      { "title": "No App, No Driver, No Delivery Fee", "body": "This applies to orders within the specified free delivery zone only, ordered via direct call/text/DM as indicated in official City Slice channels." },
+      { "title": "Order Cutoff", "body": "Orders are subject to City Slice Pizza Lounge's daily operating hours. Orders placed after cutoff time will be processed the next business day." },
+      { "title": "Right to Amend", "body": "City Slice Pizza Lounge reserves the right to amend these terms, prices, and promo inclusions at any time without prior notice." },
+      { "title": "Validity", "body": "This promo is valid for a limited time only, as indicated in official City Slice announcements." }
+    ],
+    "footnote": "This initiative is currently available to select building partners within Century City, Makati. Any additional terms, conditions, or requirements specific to a particular building will be indicated below and shall be considered part of these Terms & Conditions. Participating buildings are subject to change, and this list may be expanded to include additional locations as they come on board."
+  },
+
+  "announcements": [
+    {
+      "title": "NEW: Spicy Marry Me Chicken slice",
+      "detail": "Our newest specialty flavor has arrived — try it by the slice or as a whole pie.",
+      "active": true,
+      "expires": null
+    }
+  ],
 
   "payment": ["Cash", "GCash", "Grab Pay", "Credit/Debit Card", "Bank Transfer / QR PH"],
 
@@ -40,10 +84,18 @@
       {
         "tag": "Specialty",
         "name": "Specialty Slice",
-        "desc": "5 Cheese · Sausage Bacon Pesto · All Meat · Chicken Bacon Ranch · Pinoy Chicken BBQ · Hawaiian Queso Overload · Vegetarian Overload · Holy Moly Margarita",
+        "desc": "Queso Hawaiian Overload · 5 Cheese · All Meat · Chicken Bacon Ranch · Veggie Overload · Pinoy Chicken BBQ · NEW: Spicy Marry Me Chicken · Chef's Special: Stuffed Sausage & Veggie or Stuffed Sausage & Pepperoni",
         "priceDineIn": 295,
         "priceDelivery": 325,
         "priceLabel": "Dine-in"
+      },
+      {
+        "tag": "Late Night",
+        "name": "Midnight Slice",
+        "desc": "Late-night promo slice. While stocks last.",
+        "priceDineIn": 200,
+        "priceDelivery": null,
+        "priceLabel": "Promo"
       }
     ],
 
@@ -102,37 +154,39 @@
     ],
 
     "drinks": [
-      { "tag": "Citro", "name": "Citro Lemonade", "desc": "Classic · Strawberry · Watermelon · Blueberry", "priceDineIn": 99, "priceDelivery": 110 },
-      { "tag": "Citro", "name": "Citro Slushie", "desc": "Icy, refreshing, and dangerously good.", "priceDineIn": 129, "priceDelivery": null },
-      { "tag": "Coffee", "name": "Brewed Coffee", "desc": "Kold Kopi brewed coffee", "priceDineIn": 70, "priceDelivery": null },
-      { "tag": "Coffee", "name": "Vietnamese Coffee", "desc": "Sweet, strong, iced", "priceDineIn": 80, "priceDelivery": null },
-      { "tag": "Soda", "name": "Sodas", "desc": "Coke · Coke Zero · Sprite Zero · Royal · Rootbeer", "priceDineIn": 99, "priceDelivery": null },
-      { "tag": "Water", "name": "Bottled Water", "desc": "Still water", "priceDineIn": 35, "priceDelivery": null }
+      { "tag": "Citro", "name": "Citro Lemonade", "desc": "Classic · Cucumber · Blue Dream · Strawberry · Watermelon (+₱30 to make it a slushie)", "priceDineIn": 99, "priceDelivery": 110 },
+      { "tag": "Citro", "name": "Citro Slushie", "desc": "Any Citro flavor, blended icy and refreshing.", "priceDineIn": 129, "priceDelivery": null },
+      { "tag": "Coffee", "name": "Kold Coffee", "desc": "Sweet Kold Brew · Sugar-Free Kold Brew · Sweet Latte · Sugar-Free Latte", "priceDineIn": 95, "priceDelivery": null },
+      { "tag": "Soda", "name": "Sodas", "desc": "Coke · Coke Zero · Sprite · Sprite Regular/Zero · Royal · Root Beer", "priceDineIn": 99, "priceDelivery": null },
+      { "tag": "Beer", "name": "Beer", "desc": "Pale Pilsen · San Mig Light · Flavored Beer Apple", "priceDineIn": 125, "priceDelivery": null },
+      { "tag": "Water", "name": "Purified Water", "desc": "Still water", "priceDineIn": 35, "priceDelivery": null },
+      { "tag": "6-Pack", "name": "Citro Case", "desc": "Take 6 Citros home. Mix and match flavors.", "priceDineIn": 499, "priceDelivery": null }
     ],
 
     "desserts": [
       { "tag": "Dessert First", "name": "Panna Cotta", "desc": "Strawberry · Coffee · Chocolate", "priceDineIn": 159, "priceDelivery": 199 },
       { "tag": "Dessert First", "name": "Overnight Oats", "desc": "Blueberry · Strawberry · Oreo · Regular", "priceDineIn": 129, "priceDelivery": null },
-      { "tag": "Dessert Can", "name": "Cheesecakes", "desc": "Blueberry · Chocolate · Key Lime Pie · Tres Leches · Tiramisu", "priceDineIn": 240, "priceDelivery": null, "priceSuffix": "each" }
+      { "tag": "Dessert Can", "name": "Cheesecakes", "desc": "Blueberry · Chocolate · Key Lime Pie · Tres Leches · Tiramisu", "priceDineIn": 240, "priceDelivery": null, "priceSuffix": "each" },
+      { "tag": "Bundle", "name": "Sweet Box", "desc": "6 desserts in one box. Perfect for sharing (or not).", "priceDineIn": 1299, "priceDelivery": null }
     ]
   },
 
   "addOns": {
     "sauces": "Extra Cheese / Garlic Yogurt / Ranch / Sweet Sriracha: ₱20 · Hot Sauce: ₱15 · Chili Flakes: ₱10",
-    "toppings": "Mozzarella · Pepperoni · Mushrooms · Bell Peppers · Red Onions · Ham · Crispy Bacon · Bacon · Chicken (Ranch) · Chicken (BBQ) · Beef · Tomatoes · Pineapple"
+    "toppings": "Cheddar · Mozzarella · Pepperoni · Mushrooms · Bell Peppers · Red Onions · Ham · Crispy Bacon · Bacon · Chicken (Ranch) · Chicken (BBQ) · Beef · Tomatoes · Pineapple"
   },
 
   "promotions": [
     "Combo Deals: Bundle slices with drinks and desserts",
     "Office Party Pack: 3x 14\" whole pizzas at a bundle price. Great for groups of 10+.",
-    "FREE delivery to Milano Residences, Knightsbridge Residences, and Century Spire (Century City, Makati)"
+    "FREE delivery to Milano Residences and Knightsbridge Residences (Century City, Makati) — Gramercy Residences and Century Spire coming soon"
   ],
 
   "faqs": [
     { "q": "Where are you located?", "a": "We're at Milano Residences Piazza, Kalayaan Ave, Poblacion, Makati City — ground floor." },
     { "q": "What are your store hours?", "a": "We're open every day from 9:00 AM to 11:00 PM — 7 days a week!" },
-    { "q": "Do you deliver?", "a": "Yes! FREE delivery to Milano Residences, Knightsbridge Residences, and Century Spire — order direct via Viber 0966 196 7715. All other areas: order via GrabFood, search City Slice Pizza Lounge." },
-    { "q": "Which buildings get free delivery?", "a": "Milano Residences, Knightsbridge Residences, and Century Spire — all in the Century City area of Makati. Order direct via Viber 0966 196 7715." },
+    { "q": "Do you deliver?", "a": "Yes! FREE delivery to Milano Residences and Knightsbridge Residences — order direct via Viber or WhatsApp 0966 196 7715. All other areas: order via GrabFood, search City Slice Pizza Lounge." },
+    { "q": "Which buildings get free delivery?", "a": "Milano Residences and Knightsbridge Residences right now. Gramercy Residences and Century Spire are coming soon. Order direct via Viber or WhatsApp 0966 196 7715." },
     { "q": "What payment methods do you accept?", "a": "Cash, GCash, Grab Pay, Credit/Debit Card, and Bank Transfer / QR PH." },
     { "q": "What's the difference between Classic and Specialty slices?", "a": "Classic slices (Pepperoni & Cheese) are ₱250. Specialty slices are premium flavors at ₱295." },
     { "q": "How big are your slices?", "a": "New York-style XL — much bigger than regular pizza. One slice is a solid meal." },
