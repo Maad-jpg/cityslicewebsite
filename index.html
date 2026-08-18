@@ -175,9 +175,12 @@
     <li><a href="#vibe">The Vibe</a></li>
     <li><a href="#menu">Menu</a></li>
     <li><a href="#find-us">Find Us</a></li>
+    <li><a href="/delivery.html" target="_blank">Free Delivery</a></li>
   </ul>
   <a href="#" id="nav-order-cta" target="_blank" class="nav-cta">Order Now</a>
 </nav>
+
+<div id="announcement-banner" style="display:none;position:fixed;top:68px;left:0;right:0;z-index:99;background:var(--yellow);color:var(--navy-dark);padding:10px 24px;text-align:center;font-size:13px;font-weight:600;"></div>
 
 <section id="hero">
   <div class="hero-bg"></div>
@@ -395,6 +398,7 @@
       buildMenuTabs();
       renderAllMenuPanels();
       renderFindUs();
+      renderAnnouncement();
       wireOrderLinks();
       pickAgent();
       SYSTEM_PROMPT = buildSystemPrompt(DATA);
@@ -494,6 +498,22 @@
         </div>
       </div>
     `;
+  }
+
+  // ─── ANNOUNCEMENT BANNER ───
+  function renderAnnouncement() {
+    const list = DATA.announcements || [];
+    const now = new Date();
+    const live = list.find(a => {
+      if (!a.active) return false;
+      if (a.expires && new Date(a.expires) < now) return false;
+      return true;
+    });
+    const banner = document.getElementById('announcement-banner');
+    if (!live) { banner.style.display = 'none'; return; }
+    banner.textContent = `${live.title} — ${live.detail}`;
+    banner.style.display = 'block';
+    document.getElementById('hero').style.marginTop = '38px';
   }
 
   // ─── ORDER LINKS ───
