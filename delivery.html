@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Free Delivery — City Slice Pizza Lounge</title>
+  <meta name="description" content="City Slice Pizza Lounge free delivery to Century City residences. Order via Viber or WhatsApp." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --navy: #001F3E;
+      --navy-dark: #001229;
+      --yellow: #F0C52C;
+      --white: #FFFFFF;
+      --grey: #7A8FA6;
+      --border: rgba(255,255,255,0.08);
+      --radius: 8px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--navy-dark); color: var(--white); }
+    .wrap { max-width: 720px; margin: 0 auto; padding: 40px 24px 80px; }
+
+    .logo-row { display: flex; align-items: center; gap: 16px; margin-bottom: 32px; }
+    .logo-badge { width: 64px; height: 64px; border-radius: 50%; border: 2px solid var(--yellow); display: flex; align-items: center; justify-content: center; font-family: 'Bebas Neue', sans-serif; font-size: 10px; color: var(--yellow); text-align: center; line-height: 1.2; flex-shrink: 0; }
+
+    h1 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(36px, 8vw, 56px); color: var(--yellow); line-height: 1.05; letter-spacing: 1px; }
+    .subhead { color: rgba(255,255,255,0.7); font-size: 15px; margin-top: 8px; }
+    .intro { color: rgba(255,255,255,0.6); font-size: 14px; line-height: 1.7; margin: 24px 0 40px; max-width: 560px; }
+    .intro strong { color: var(--white); }
+
+    .order-cta { display: flex; align-items: center; gap: 16px; background: var(--navy); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px 24px; margin-bottom: 48px; flex-wrap: wrap; }
+    .order-cta-text { flex: 1; min-width: 180px; }
+    .order-cta-label { font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--yellow); font-weight: 700; margin-bottom: 4px; }
+    .order-cta-phone { font-family: 'Bebas Neue', sans-serif; font-size: 26px; letter-spacing: 1px; }
+    .btn { background: var(--yellow); color: var(--navy-dark); padding: 12px 24px; border-radius: var(--radius); font-weight: 700; font-size: 13px; letter-spacing: 0.5px; text-transform: uppercase; text-decoration: none; display: inline-block; }
+
+    h2 { font-family: 'Bebas Neue', sans-serif; font-size: 28px; letter-spacing: 1px; color: var(--white); margin-bottom: 20px; }
+
+    .bundles { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; margin-bottom: 48px; }
+    .bundle-card { background: var(--navy); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; text-align: center; }
+    .bundle-name { font-family: 'Bebas Neue', sans-serif; font-size: 18px; color: var(--yellow); letter-spacing: 0.5px; margin-bottom: 8px; }
+    .bundle-desc { font-size: 12px; color: rgba(255,255,255,0.55); line-height: 1.5; margin-bottom: 12px; min-height: 48px; }
+    .bundle-save { display: inline-block; background: rgba(240,197,44,0.12); color: var(--yellow); font-weight: 700; font-size: 13px; padding: 4px 12px; border-radius: 100px; }
+
+    .buildings-section { margin-bottom: 48px; }
+    .building-list { list-style: none; }
+    .building-list li { padding: 12px 16px; border-bottom: 1px solid var(--border); font-size: 15px; }
+    .building-list.active li { color: var(--yellow); font-weight: 600; }
+    .building-list.soon li { color: rgba(255,255,255,0.35); text-decoration: line-through; }
+    .building-note { font-size: 12px; color: rgba(255,255,255,0.4); margin-top: 12px; }
+    .building-cta { margin-top: 20px; font-size: 13px; color: rgba(255,255,255,0.6); line-height: 1.6; background: var(--navy); border-radius: var(--radius); padding: 16px; }
+
+    .menu-section { margin-bottom: 48px; }
+    .menu-cat { margin-bottom: 28px; }
+    .menu-cat-title { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--yellow); font-weight: 700; margin-bottom: 12px; }
+    .menu-row { display: flex; justify-content: space-between; gap: 12px; padding: 8px 0; border-bottom: 1px solid var(--border); font-size: 14px; }
+    .menu-row-name { font-weight: 600; }
+    .menu-row-desc { color: rgba(255,255,255,0.45); font-size: 12px; margin-top: 2px; }
+    .menu-row-price { font-family: 'Bebas Neue', sans-serif; color: var(--yellow); font-size: 16px; white-space: nowrap; }
+
+    .terms-section { margin-bottom: 40px; }
+    .term { margin-bottom: 16px; }
+    .term-title { font-weight: 700; font-size: 13px; color: var(--white); margin-bottom: 4px; }
+    .term-body { font-size: 12.5px; color: rgba(255,255,255,0.5); line-height: 1.6; }
+
+    .footnote { font-size: 11px; color: rgba(255,255,255,0.3); line-height: 1.6; border-top: 1px solid var(--border); padding-top: 20px; }
+
+    .back-link { display: inline-block; margin-top: 32px; color: var(--grey); font-size: 13px; text-decoration: none; }
+    .back-link:hover { color: var(--yellow); }
+
+    .loading { text-align: center; padding: 80px 0; color: var(--grey); }
+  </style>
+</head>
+<body>
+  <div class="wrap" id="app">
+    <div class="loading">Loading...</div>
+  </div>
+
+  <script>
+    async function init() {
+      const app = document.getElementById('app');
+      try {
+        const res = await fetch('/data.json?v=' + Date.now());
+        if (!res.ok) throw new Error('failed');
+        const d = await res.json();
+        render(d);
+      } catch (e) {
+        app.innerHTML = '<div class="loading">Unable to load. Please call or Viber us at 0966 196 7715.</div>';
+      }
+    }
+
+    function render(d) {
+      const dp = d.deliveryProgram;
+      const b = d.business;
+      const waLink = 'https://wa.me/639661967715';
+      const viberLink = 'viber://chat?number=%2B639661967715';
+
+      const bundlesHtml = dp.bundles.map(x => `
+        <div class="bundle-card">
+          <div class="bundle-name">${x.name}</div>
+          <div class="bundle-desc">${x.desc}</div>
+          <div class="bundle-save">SAVE ₱${x.save}!</div>
+        </div>
+      `).join('');
+
+      const activeHtml = dp.activeBuildings.map(x => `<li>${x}</li>`).join('');
+      const soonHtml = dp.comingSoonBuildings.map(x => `<li>${x}</li>`).join('');
+
+      const menuCats = [
+        { title: 'XL Slices', items: d.menu.slices },
+        { title: 'Whole Pies', items: d.menu.whole },
+        { title: 'Combo Deals', items: d.menu.combos },
+        { title: 'Whole Pie Deals & Office Packs', items: d.menu.bulk },
+        { title: 'Drinks', items: d.menu.drinks },
+        { title: 'Desserts', items: d.menu.desserts },
+      ];
+
+      const menuHtml = menuCats.map(cat => `
+        <div class="menu-cat">
+          <div class="menu-cat-title">${cat.title}</div>
+          ${cat.items.map(item => `
+            <div class="menu-row">
+              <div>
+                <div class="menu-row-name">${item.name}</div>
+                <div class="menu-row-desc">${item.desc || ''}</div>
+              </div>
+              <div class="menu-row-price">${item.priceOverride || '₱' + Number(item.priceDineIn).toLocaleString()}</div>
+            </div>
+          `).join('')}
+        </div>
+      `).join('');
+
+      const termsHtml = dp.terms.map(t => `
+        <div class="term">
+          <div class="term-title">${t.title}</div>
+          <div class="term-body">${t.body}</div>
+        </div>
+      `).join('');
+
+      document.getElementById('app').innerHTML = `
+        <div class="logo-row">
+          <div class="logo-badge">CITY SLICE PIZZA LOUNGE</div>
+        </div>
+
+        <h1>${dp.headline}</h1>
+        <p class="subhead">${dp.subhead}</p>
+        <p class="intro">${dp.intro}</p>
+
+        <div class="order-cta">
+          <div class="order-cta-text">
+            <div class="order-cta-label">${dp.orderChannel}</div>
+            <div class="order-cta-phone">${dp.orderPhone}</div>
+          </div>
+          <a href="${viberLink}" class="btn">Message on Viber</a>
+          <a href="${waLink}" class="btn" style="background:transparent;border:1.5px solid var(--yellow);color:var(--yellow);">WhatsApp</a>
+        </div>
+
+        <h2>Popular Bundles</h2>
+        <div class="bundles">${bundlesHtml}</div>
+
+        <div class="buildings-section">
+          <h2>Participating Buildings &amp; Offices</h2>
+          <ul class="building-list active">${activeHtml}</ul>
+          <ul class="building-list soon">${soonHtml}</ul>
+          <div class="building-note">Highlighted buildings above are active. Struck-through buildings are coming soon.</div>
+          <div class="building-cta">${dp.buildingCta}</div>
+        </div>
+
+        <div class="menu-section">
+          <h2>Full Menu</h2>
+          ${menuHtml}
+        </div>
+
+        <div class="terms-section">
+          <h2>Terms &amp; Conditions</h2>
+          ${termsHtml}
+        </div>
+
+        <div class="footnote">${dp.footnote}</div>
+
+        <a href="/" class="back-link">← Back to main site</a>
+      `;
+    }
+
+    init();
+  </script>
+</body>
+</html>
