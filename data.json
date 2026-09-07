@@ -1,4 +1,9 @@
 {
+    "status": {
+    "isOpen": false,
+    "closedMessage": "We're currently closed and not taking orders. Follow @cityslicemanila on Instagram for updates on when we reopen."
+  },
+  
   "business": {
     "name": "City Slice Pizza Lounge",
     "tagline": "New York-style XL pizza by the slice, Fast + Fresh",
