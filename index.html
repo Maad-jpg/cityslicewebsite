@@ -32,6 +32,23 @@
     .nav-links a:hover { color: var(--yellow); }
     .nav-cta { background: var(--yellow); color: var(--navy-dark) !important; padding: 10px 22px; border-radius: var(--radius); font-weight: 600 !important; font-size: 13px !important; letter-spacing: 1px; text-decoration: none; transition: background 0.2s; }
     .nav-cta:hover { background: var(--yellow-dim) !important; color: var(--navy-dark) !important; }
+    .nav-cta.disabled, .btn-primary.disabled, .btn-secondary.disabled, .btn-dark.disabled {
+      opacity: 0.4; pointer-events: none; cursor: not-allowed; filter: grayscale(60%);
+    }
+
+    #status-banner {
+      display: none;
+      position: sticky;
+      top: 0;
+      z-index: 150;
+      background: var(--navy-dark);
+      color: var(--yellow);
+      text-align: center;
+      padding: 12px 20px;
+      font-weight: 700;
+      font-size: 14px;
+      border-bottom: 1px solid rgba(240,197,44,0.25);
+    }
 
     #hero { position: relative; height: 100vh; min-height: 600px; display: flex; align-items: center; justify-content: center; overflow: hidden; }
     .hero-bg { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(0,18,41,0.55) 0%, rgba(0,18,41,0.3) 40%, rgba(0,18,41,0.75) 100%), url('https://res.cloudinary.com/dijaxqifv/image/upload/v1781253094/Hero_Shot_1_lu4bj4.webp') center/cover no-repeat; }
@@ -112,6 +129,7 @@
     #chat-bubble-btn:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(240,197,44,0.45); }
     #chat-bubble-btn .bubble-icon { width: 22px; height: 22px; flex-shrink: 0; }
     #chat-bubble-btn .bubble-dot { width: 8px; height: 8px; background: #22c55e; border-radius: 50%; border: 2px solid var(--navy-dark); position: absolute; top: 10px; right: 10px; }
+    #chat-bubble-btn .bubble-dot.closed { background: #ef4444; }
 
     #chat-panel { position: fixed; bottom: 90px; right: 28px; z-index: 998; width: 380px; max-height: 560px; background: #F5F3EE; border-radius: 16px; box-shadow: 0 20px 60px rgba(0,0,0,0.35); display: flex; flex-direction: column; overflow: hidden; transform: scale(0.95) translateY(10px); opacity: 0; pointer-events: none; transition: transform 0.25s cubic-bezier(0.34,1.56,0.64,1), opacity 0.2s ease; }
     #chat-panel.open { transform: scale(1) translateY(0); opacity: 1; pointer-events: all; }
@@ -119,6 +137,7 @@
     .chat-header-left { display: flex; align-items: center; gap: 12px; }
     .chat-avatar { width: 38px; height: 38px; border-radius: 50%; background: var(--yellow); display: flex; align-items: center; justify-content: center; font-family: 'Bebas Neue', sans-serif; font-size: 16px; color: var(--navy-dark); position: relative; flex-shrink: 0; }
     .chat-avatar::after { content: ''; position: absolute; bottom: 1px; right: 1px; width: 10px; height: 10px; background: #22c55e; border-radius: 50%; border: 2px solid var(--navy-dark); }
+    .chat-avatar.closed::after { background: #ef4444; }
     .chat-agent-name { font-weight: 700; font-size: 14px; color: var(--white); }
     .chat-agent-status { font-size: 11px; color: rgba(255,255,255,0.5); margin-top: 1px; }
     .chat-brand { text-align: right; }
@@ -168,9 +187,8 @@
   </style>
 </head>
 <body>
-  <div style="background:#001F3E; color:#FCC52C; text-align:center; padding:14px 20px; font-family:Arial,sans-serif; font-weight:bold; font-size:15px; position:sticky; top:0; z-index:9999;">
-  🍕 City Slice is currently closed. We'll be back — stay tuned for updates!
-</div>
+
+<div id="status-banner"></div>
 
 <nav>
   <a href="#hero" class="nav-logo">CITY <span style="color:var(--white)">SLICE</span><span style="color:var(--grey);font-size:11px;font-family:'DM Sans',sans-serif;letter-spacing:2px;display:inline;margin-left:6px;font-weight:500">.</span></a>
@@ -183,7 +201,7 @@
   <a href="#" id="nav-order-cta" target="_blank" class="nav-cta">Order Now</a>
 </nav>
 
-<div id="announcement-banner" style="display:none;position:fixed;top:68px;left:0;right:0;z-index:99;background:var(--yellow);color:var(--navy-dark);padding:10px 24px;text-align:center;font-size:13px;font-weight:600;"></div>
+<div id="announcement-banner" style="display:none;position:fixed;left:0;right:0;z-index:99;background:var(--yellow);color:var(--navy-dark);padding:10px 24px;text-align:center;font-size:13px;font-weight:600;"></div>
 
 <section id="hero">
   <div class="hero-bg"></div>
@@ -329,7 +347,7 @@
     <path d="M20 2H4C2.9 2 2 2.9 2 4V22L6 18H20C21.1 18 22 17.1 22 16V4C22 2.9 21.1 2 20 2Z" fill="currentColor"/>
   </svg>
   Chat with us
-  <div class="bubble-dot"></div>
+  <div class="bubble-dot" id="bubble-dot"></div>
 </button>
 
 <div id="chat-panel" role="dialog" aria-label="City Slice chat">
@@ -338,7 +356,7 @@
       <div class="chat-avatar" id="agent-initial">J</div>
       <div>
         <div class="chat-agent-name" id="agent-name">...</div>
-        <div class="chat-agent-status">● Online now · City Slice Staff</div>
+        <div class="chat-agent-status" id="agent-status">● Online now · City Slice Staff</div>
       </div>
     </div>
     <div style="display:flex;align-items:center;gap:12px;">
@@ -363,6 +381,7 @@
 <script>
   // ═══════════════════════════════════════════════════════════════════
   // DO NOT EDIT BELOW THIS LINE — all editable content lives in data.json
+  // Open/closed status is controlled by the "status" object in data.json
   // ═══════════════════════════════════════════════════════════════════
 
   let DATA = null;
@@ -401,6 +420,7 @@
       buildMenuTabs();
       renderAllMenuPanels();
       renderFindUs();
+      renderStatusBanner();
       renderAnnouncement();
       wireOrderLinks();
       pickAgent();
@@ -411,6 +431,36 @@
         el.textContent = 'Menu temporarily unavailable. Please call 0966 196 7715.';
       });
     }
+  }
+
+  function isClosed() {
+    return !!(DATA && DATA.status && DATA.status.isOpen === false);
+  }
+
+  // ─── STATUS BANNER (open/closed override) ───
+  function renderStatusBanner() {
+    const banner = document.getElementById('status-banner');
+    if (!isClosed()) {
+      banner.style.display = 'none';
+      return;
+    }
+    const msg = (DATA.status && DATA.status.closedMessage) || "We're currently closed.";
+    banner.textContent = '🍕 ' + msg;
+    banner.style.display = 'block';
+
+    // Grey out and disable ordering CTAs site-wide
+    ['nav-order-cta', 'hero-grab-link', 'find-us-grab-link', 'footer-grab-link'].forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.classList.add('disabled');
+    });
+
+    // Mark chat bubble / avatar as closed (red dot instead of green)
+    const dot = document.getElementById('bubble-dot');
+    if (dot) dot.classList.add('closed');
+    const avatar = document.getElementById('agent-initial');
+    if (avatar) avatar.classList.add('closed');
+    const status = document.getElementById('agent-status');
+    if (status) status.textContent = '● Currently closed · City Slice Staff';
   }
 
   // ─── MENU RENDERING ───
@@ -503,7 +553,7 @@
     `;
   }
 
-  // ─── ANNOUNCEMENT BANNER ───
+  // ─── ANNOUNCEMENT BANNER (stacks below status banner if both are showing) ───
   function renderAnnouncement() {
     const list = DATA.announcements || [];
     const now = new Date();
@@ -513,10 +563,14 @@
       return true;
     });
     const banner = document.getElementById('announcement-banner');
+    const statusVisible = isClosed();
+    const topOffset = statusVisible ? 116 : 68;
+
     if (!live) { banner.style.display = 'none'; return; }
     banner.textContent = `${live.title} — ${live.detail}`;
+    banner.style.top = topOffset + 'px';
     banner.style.display = 'block';
-    document.getElementById('hero').style.marginTop = '38px';
+    document.getElementById('hero').style.marginTop = (statusVisible ? 76 : 38) + 'px';
   }
 
   // ─── ORDER LINKS ───
@@ -540,6 +594,7 @@
   function buildSystemPrompt(d) {
     const b = d.business;
     const del = d.delivery;
+    const status = d.status || { isOpen: true };
 
     const sliceLines = d.menu.slices.map(s => {
       const del = s.priceDelivery ? ` / ₱${s.priceDelivery} delivery` : '';
@@ -575,12 +630,20 @@
     const deflectLines = d.deflections.map(x => `- ${x.topic} → "${x.response}"`).join('\n');
     const buildings = del.freeDeliveryBuildings.join(', ');
 
-    return `You are ${agent.name}, a friendly and energetic staff member at ${b.name} in Makati, Philippines. You speak like a real person — warm, casual, helpful. Never robotic. Use pizza emojis occasionally. Keep answers short and direct.
+    const statusBlock = status.isOpen === false
+      ? `\nCURRENT STATUS — READ THIS FIRST, IT OVERRIDES EVERYTHING BELOW:
+City Slice is CURRENTLY CLOSED and not taking any orders (dine-in, delivery, or otherwise), regardless of what the listed hours say. Do not tell customers we are open. Do not take or encourage orders. Do not give a reopening date unless one is explicitly stated below.
+When asked if we're open, if we deliver, or if they can order — respond with: "${status.closedMessage || "We're currently closed."}"
+You may still answer general questions about the menu, past hours, or location informationally, but always make clear we are not operating right now.
+`
+      : '';
 
+    return `You are ${agent.name}, a friendly and energetic staff member at ${b.name} in Makati, Philippines. You speak like a real person — warm, casual, helpful. Never robotic. Use pizza emojis occasionally. Keep answers short and direct.
+${statusBlock}
 ABOUT CITY SLICE:
 - Business: ${b.name} — ${b.tagline}
 - Location: ${b.location}
-- Hours: ${b.hoursPromptText}
+- Hours (when open): ${b.hoursPromptText}
 - Holiday hours may vary — direct customers to check ${b.instagram} on Instagram for updates
 - Phone / Viber: ${b.phone}
 - Email: ${b.email}
@@ -633,7 +696,7 @@ RULES:
 - If you don't know something, say "Let me check on that — you can also call us at ${b.phone}"
 - Never make up prices or items not listed above
 - Never paste raw URLs in any response
-- For ordering, tell customers to tap the "Order Now" button at the top of the page or find us on GrabFood
+- For ordering, tell customers to tap the "Order Now" button at the top of the page or find us on GrabFood — UNLESS we are currently closed, per the status note above
 - For delivery orders, let customers know prices are slightly higher than dine-in
 
 OUT-OF-SCOPE RULE:
@@ -654,7 +717,10 @@ SENSITIVE OFF-TOPIC (politics, religion, personal problems, other businesses, an
         greeted = true;
         renderChips();
         setTimeout(() => {
-          addMessage('bot', `Hey there! 👋 I'm ${agent.name} from City Slice Pizza Lounge. What can I help you with today? Whether it's our menu, how to order, or where we're at — I got you!`);
+          const greeting = isClosed()
+            ? `Hey there! 👋 I'm ${agent.name} from City Slice. Quick heads up — we're currently closed. ${(DATA.status && DATA.status.closedMessage) || ''}`
+            : `Hey there! 👋 I'm ${agent.name} from City Slice Pizza Lounge. What can I help you with today? Whether it's our menu, how to order, or where we're at — I got you!`;
+          addMessage('bot', greeting);
         }, 400);
       } else if (!dataReady) {
         setTimeout(() => addMessage('bot', "Loading — one sec!"), 200);
