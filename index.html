@@ -578,17 +578,21 @@
   function layoutBanners() {
     const statusEl = document.getElementById('status-banner');
     const annEl = document.getElementById('announcement-banner');
-    let offset = 0;
+    const NAV_HEIGHT = 68; // matches the fixed nav's height in CSS
+    let offset = NAV_HEIGHT;
+    let anyVisible = false;
 
     if (statusEl.style.display !== 'none') {
       statusEl.style.top = offset + 'px';
       offset += statusEl.offsetHeight;
+      anyVisible = true;
     }
     if (annEl.style.display !== 'none') {
       annEl.style.top = offset + 'px';
       offset += annEl.offsetHeight;
+      anyVisible = true;
     }
-    document.getElementById('hero').style.marginTop = offset + 'px';
+    document.getElementById('hero').style.marginTop = anyVisible ? offset + 'px' : '0px';
   }
 
   // ─── ORDER LINKS ───
