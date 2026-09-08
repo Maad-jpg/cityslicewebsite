@@ -38,9 +38,11 @@
 
     #status-banner {
       display: none;
-      position: sticky;
+      position: absolute;
       top: 0;
-      z-index: 150;
+      left: 0;
+      right: 0;
+      z-index: 90;
       background: var(--navy-dark);
       color: var(--yellow);
       text-align: center;
@@ -201,7 +203,7 @@
   <a href="#" id="nav-order-cta" target="_blank" class="nav-cta">Order Now</a>
 </nav>
 
-<div id="announcement-banner" style="display:none;position:fixed;left:0;right:0;z-index:99;background:var(--yellow);color:var(--navy-dark);padding:10px 24px;text-align:center;font-size:13px;font-weight:600;"></div>
+<div id="announcement-banner" style="display:none;position:absolute;left:0;right:0;z-index:89;background:var(--yellow);color:var(--navy-dark);padding:10px 24px;text-align:center;font-size:13px;font-weight:600;"></div>
 
 <section id="hero">
   <div class="hero-bg"></div>
@@ -422,6 +424,7 @@
       renderFindUs();
       renderStatusBanner();
       renderAnnouncement();
+      layoutBanners();
       wireOrderLinks();
       pickAgent();
       SYSTEM_PROMPT = buildSystemPrompt(DATA);
@@ -553,7 +556,7 @@
     `;
   }
 
-  // ─── ANNOUNCEMENT BANNER (stacks below status banner if both are showing) ───
+  // ─── ANNOUNCEMENT BANNER ───
   function renderAnnouncement() {
     const list = DATA.announcements || [];
     const now = new Date();
@@ -563,14 +566,29 @@
       return true;
     });
     const banner = document.getElementById('announcement-banner');
-    const statusVisible = isClosed();
-    const topOffset = statusVisible ? 116 : 68;
-
     if (!live) { banner.style.display = 'none'; return; }
     banner.textContent = `${live.title} — ${live.detail}`;
-    banner.style.top = topOffset + 'px';
     banner.style.display = 'block';
-    document.getElementById('hero').style.marginTop = (statusVisible ? 76 : 38) + 'px';
+  }
+
+  // ─── BANNER STACKING (runs after status + announcement are rendered) ───
+  // Stacks whichever banners are visible, top to bottom, and pushes the hero
+  // section down so nothing sits underneath them. Banners scroll away
+  // normally since they're position:absolute, not fixed.
+  function layoutBanners() {
+    const statusEl = document.getElementById('status-banner');
+    const annEl = document.getElementById('announcement-banner');
+    let offset = 0;
+
+    if (statusEl.style.display !== 'none') {
+      statusEl.style.top = offset + 'px';
+      offset += statusEl.offsetHeight;
+    }
+    if (annEl.style.display !== 'none') {
+      annEl.style.top = offset + 'px';
+      offset += annEl.offsetHeight;
+    }
+    document.getElementById('hero').style.marginTop = offset + 'px';
   }
 
   // ─── ORDER LINKS ───
